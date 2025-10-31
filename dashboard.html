@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>新春会 - 动态数据看板</title>
+  <title>动态数据看板 | 华彩新纪元</title>
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
-  <!-- 如果后续需要 Chart.js，可在这里引入 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -25,17 +24,20 @@
     </nav>
   </aside>
 
-  <main class="content" id="content">
-    <section>
-      <h1>动态数据看板</h1>
-      <p class="muted">此处为看板占位，后续可引入图表库（如 Chart.js）并通过 API 填充实时数据。</p>
+   <main class="dashboard">
+    <div class="dashboard-nav">
+      <button class="tab active" data-target="subscribers">订阅人数</button>
+      <button class="tab" data-target="funds">筹款进度</button>
+      <button class="tab" data-target="daily">每日筹款金额</button>
+    </div>
 
-      <div class="card" style="margin-top:16px; padding:24px; min-height:260px; display:flex; align-items:center; justify-content:center;">
-        <div class="muted">图表 / 数据组件 占位区</div>
-      </div>
-    </section>
-
-    <footer class="site-footer">© 2025 新春会 • 保留所有权利</footer>
+    <div class="chart-container">
+      <canvas id="subscribersChart"></canvas>
+      <canvas id="fundsChart" class="hidden"></canvas>
+      <canvas id="dailyChart" class="hidden"></canvas>
+    </div>
   </main>
+
+  <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
